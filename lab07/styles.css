@@ -9,7 +9,7 @@ body {
 h1 {
     color: #333;
     font-size: 24px;
-    background-color: #bbffb2;
+    background-color: #10270d;
     padding: 15px;
     border-radius: 5px;
     color: rgb(0, 0, 0);
@@ -36,14 +36,14 @@ li {
 }
 
 li.completed {
-    background-color: #d4edda;
+    background-color: #5e6b61;
     text-decoration: line-through;
 }
 
 input[type="text"] {
     width: 60%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #818181;
     border-radius: 8px;
     margin-right: 10px;
     font-size: 16px;
@@ -51,7 +51,7 @@ input[type="text"] {
 
 button {
     padding: 12px 24px;
-    background-color: #ffaced;
+    background-color: #77516f;
     color: white;
     border: none;
     border-radius: 8px;
@@ -60,5 +60,5 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2483e9;
 }
