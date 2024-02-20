@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CatDog Image</title>
+</head>
+<body>
+
+<h1>Upload CatDog Image</h1>
+
+<form id="uploadForm" enctype="multipart/form-data">
+    <label for="catdogImage">Select image to upload:</label>
+    <input type="file" name="catdogImage" id="catdogImage" accept="image/*" required>
+    <br>
+    <input type="submit" value="Upload">
+</form>
+
+<!-- Add the back button -->
+<button onclick="document.location='index.html'">back</button>
+
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(this);
+
+        // Upload dog image
+        fetch('https://api.thedogapi.com/v1/images/upload', {
+            method: 'POST',
+            headers: {
+                'x-api-key': 'YOUR_API_KEY' // Replace with your API Key
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Image uploaded successfully!');
+            window.location.href = 'index.html'; // Redirect to index.html after successful upload
+        })
+        .catch(error => console.error('Error uploading catdog image:', error));
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CatDog Images</title>
+    <style>
+        img {
+            max-width: 300px;
+            max-height: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My CatDog Images</h1>
+
+<!-- Add the upload button -->
+<button onclick="document.location='uploaddog.html'">Add your pet</button>
+
+<div id="catdogImages"></div>
+
+<script>
+    const catdogImagesData = [
+        {"id":"22b","url":"https://cdn2.thecatapi.com/images/22b.jpg","width":320,"height":240},
+        {"id":"a4t","url":"https://cdn2.thecatapi.com/images/a4t.jpg","width":426,"height":640},
+        {"id":"bov","url":"https://cdn2.thecatapi.com/images/bov.jpg","width":600,"height":803},
+        {"id":"bpi","url":"https://cdn2.thecatapi.com/images/bpi.jpg","width":538,"height":717},
+        {"id":"df3","url":"https://cdn2.thecatapi.com/images/df3.jpg","width":480,"height":360},
+        {"id":"e6n","url":"https://cdn2.thecatapi.com/images/e6n.jpg","width":500,"height":334},
+        {"id":"efh","url":"https://cdn2.thecatapi.com/images/efh.jpg","width":500,"height":334},
+        {"id":"eh0","url":"https://cdn2.thecatapi.com/images/eh0.jpg","width":333,"height":500},
+        {"id":"MjAyMjk3OQ","url":"https://cdn2.thecatapi.com/images/MjAyMjk3OQ.jpg","width":640,"height":427},
+        {"id":"tnxX4IOst","url":"https://cdn2.thecatapi.com/images/tnxX4IOst.jpg","width":1080,"height":1350}
+    ];
+
+    const catdogImagesDiv = document.getElementById('catdogImages');
+
+    if (catdogImagesData.length > 0) {
+        catdogImagesData.forEach(image => {
+            const imgContainer = document.createElement('div');
+            const imgElement = document.createElement('img');
+            const deleteButton = document.createElement('button');
+
+            imgElement.src = image.url;
+            deleteButton.innerText = 'Delete';
+
+            // Event listener for delete button
+            deleteButton.addEventListener('click', function() {
+                deleteCatDogImage(image.id);
+            });
+
+            imgContainer.appendChild(imgElement);
+            imgContainer.appendChild(deleteButton);
+            catdogImagesDiv.appendChild(imgContainer);
+        });
+    } else {
+        catdogImagesDiv.innerHTML = '<p>No images found.</p>';
+    }
+
+    // Function to delete a cat image
+    function deleteCatDogImage(imageId) {
+        const index = catdogImagesData.findIndex(image => image.id === imageId);
+
+        if (index !== -1) {
+            catdogImagesData.splice(index, 1); // Remove the image from the data array
+            updateCatDogImages(); // Update the displayed images
+        }
+    }
+
+    // Function to update the displayed cat images
+    function updateCatDogImages() {
+        catdogImagesDiv.innerHTML = ''; // Clear the existing images
+
+        if (catdogImagesData.length > 0) {
+            catdogImagesData.forEach(image => {
+                const imgContainer = document.createElement('div');
+                const imgElement = document.createElement('img');
+                const deleteButton = document.createElement('button');
+
+                imgElement.src = image.url;
+                deleteButton.innerText = 'Delete';
+
+                // Event listener for delete button
+                deleteButton.addEventListener('click', function() {
+                    deleteCatDogImage(image.id);
+                });
+
+                imgContainer.appendChild(imgElement);
+                imgContainer.appendChild(deleteButton);
+                catdogImagesDiv.appendChild(imgContainer);
+            });
+        } else {
+            catdogImagesDiv.innerHTML = '<p>No images found.</p>';
+        }
+    }
+</script>
+
+</body>
+</html>
