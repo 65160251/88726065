@@ -1,0 +1,21 @@
+.error-messages {
+    color: red;  /* Set the error message text color to red */
+  }
+  
+  .error-messages ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;  /* Remove default bullet points */
+  }
+  
+  .error-messages li {
+    margin-bottom: 5px;  /* Add some spacing between error messages */
+  }
+
+  .error-required{
+    color: red;  /* Set the error message text color to red */
+  }
+
+  .error-message {
+    color: red;  /* Set the error message text color to red */
+  }
